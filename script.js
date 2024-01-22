@@ -1,7 +1,7 @@
 
-let op1;
-let op2;
-let operator;
+let op1 = null;
+let op2 = null;
+let operator = null;
 
 function add (a,b) {
     return a + b;
@@ -26,5 +26,15 @@ function operate () {
         case "-": return substract(op1,op2);
         case "*": return multiply(op1,op2);
         case "/": return divide(op1,op2);
+    }
+}
+
+function numberPressed (value) {
+    if (operator === null) {
+        if (op1 === null) op1 = value;
+        else op1 = op1 += value;
+    } else {
+        if (op2 === null) op2 = value;
+        else op2 = op2 += value;
     }
 }
