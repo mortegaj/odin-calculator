@@ -22,10 +22,10 @@ function divide (a,b) {
 
 function operate () {
     switch (operator) {
-        case "+": return add(op1,op2);
-        case "-": return substract(op1,op2);
-        case "*": return multiply(op1,op2);
-        case "/": return divide(op1,op2);
+        case "+": return add(Number(op1),Number(op2));
+        case "-": return substract(Number(op1),Number(op2));
+        case "*": return multiply(Number(op1),Number(op2));
+        case "/": return divide(Number(op1),Number(op2));
     }
 }
 
@@ -38,3 +38,29 @@ function numberPressed (value) {
         else op2 = op2 += value;
     }
 }
+
+function operationPressed (value) {
+    if (op2 === null) operator = value;
+    else {
+        op1 = operate().toString();
+        operator = value;
+        op2 = null;
+    }
+}
+
+// Testing
+// Cas 1: 10 + 20 - 30 + 50 +
+numberPressed("1"); console.log(op1+operator+op2);
+numberPressed("0"); console.log(op1+operator+op2);
+operationPressed("+"); console.log(op1+operator+op2);
+numberPressed("2"); console.log(op1+operator+op2);
+numberPressed("0"); console.log(op1+operator+op2);
+operationPressed("-"); console.log(op1+operator+op2);
+numberPressed("3"); console.log(op1+operator+op2);
+numberPressed("0"); console.log(op1+operator+op2);
+operationPressed("+"); console.log(op1+operator+op2);
+numberPressed("5"); console.log(op1+operator+op2);
+numberPressed("0"); console.log(op1+operator+op2);
+operationPressed("+"); console.log(op1+operator+op2);
+
+
