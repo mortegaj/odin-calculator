@@ -1,8 +1,10 @@
-let newOperand = null;
+let first_operand = null;
+let second_operand = null;
 
-function captureOperand (value) {
-    if (newOperand === null) newOperand = value;
-    else newOperand += value;
+function setNewOperand (operand,value) {
+    if (operand === null) operand = value;
+    else operand += value;
+    return operand;
 }
 
 let exit_condition = false;
@@ -10,7 +12,7 @@ while (!exit_condition) {
     input = prompt("Press new key");
     if (input == "q") exit_condition = true;
     else {
-        captureOperand(input);
-        console.log(newOperand);
+        first_operand = setNewOperand(first_operand,input);
+        console.log(first_operand);
     }
 }
